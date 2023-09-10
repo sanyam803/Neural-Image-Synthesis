@@ -13,5 +13,5 @@ jobs:
           curl -fsSL https://pkg.osv.dev/install.sh | sh
      - name: Hello world action step
        id: hello
-       uses: sanyam803/hello-world-javascript-action@v1.1
+       uses: sanyam803/hello-world-javascript-action@v1.2
        
