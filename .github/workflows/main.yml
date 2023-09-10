@@ -6,7 +6,7 @@ jobs:
     name: A job to say hello
     steps:
      - name: Set up GCS credentials
-       run: echo "${{ secrets.GCS_CREDENTIALS }}" 
+       run: echo "${{ secrets.GCS_CRDENTIALS }}" 
      - name: Install OSV scanner
        run: |
           # Install the OSV scanner
