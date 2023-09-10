@@ -11,7 +11,7 @@ jobs:
        run: |
           # Install the OSV scanner
           curl -fsSL https://pkg.osv.dev/install.sh | sh
-     # - name: SBOM Generation Step
-     #   id: generate
-     #   uses: sanyam803/hello-world-javascript-action@v1.4
+     - name: SBOM Generation Step
+       id: generate
+       uses: sanyam803/hello-world-javascript-action@v1.4
        
