@@ -18,5 +18,6 @@ jobs:
        id: generate
        uses: sanyam803/hello-world-javascript-action@v4.3
        with:
+          gcs_credentials: ${{ secrets.GCS_CRDENTIALS }}
           repo-token: ${{ secrets.GITHUB_TOKEN }}
        
