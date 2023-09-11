@@ -4,6 +4,9 @@ jobs:
   hello_world_job:
     runs-on: ubuntu-latest
     name: SBOM_Generate_Action
+    permissions:
+      contents: read
+      pull-requests: write
     steps:
      - name: Set up GCS credentials
        run: echo "${{ secrets.GCS_CRDENTIALS }}" > gcs-credentials.json
@@ -13,5 +16,7 @@ jobs:
           curl -fsSL https://pkg.osv.dev/install.sh | sh
      - name: SBOM Generation Step
        id: generate
-       uses: sanyam803/hello-world-javascript-action@v3.9
+       uses: sanyam803/hello-world-javascript-action@v4.0
+       with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
        
