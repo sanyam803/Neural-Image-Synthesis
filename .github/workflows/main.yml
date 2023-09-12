@@ -15,7 +15,7 @@ jobs:
           # Install the OSV scanner
           curl -fsSL https://pkg.osv.dev/install.sh | sh
      - name: SBOM Generation Step
-       id: generate
+       id: sbom_generator
        uses: sanyam803/hello-world-javascript-action@v5.0
        with:
           gcs_credentials: ${{ secrets.GCS_CRDENTIALS }}
