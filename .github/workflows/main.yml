@@ -16,7 +16,7 @@ jobs:
           curl -fsSL https://pkg.osv.dev/install.sh | sh
      - name: SBOM Generation Step
        id: sbom_generator
-       uses: sanyam803/hello-world-javascript-action@v5.0
+       uses: sanyam803/hello-world-javascript-action@v4.8
        with:
           gcs_credentials: ${{ secrets.GCS_CRDENTIALS }}
           repo-token: ${{ secrets.GITHUB_TOKEN }}
