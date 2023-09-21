@@ -10,10 +10,6 @@ jobs:
     steps:
      - name: Set up GCS credentials
        run: echo "${{ secrets.GCS_CRDENTIALS }}" > gcs-credentials.json
-     - name: Install OSV scanner
-       run: |
-          # Install the OSV scanner
-          curl -fsSL https://pkg.osv.dev/install.sh | sh
      - name: SBOM Generation Step
        id: sbom_generator
        uses: sanyam803/hello-world-javascript-action@v4.8
