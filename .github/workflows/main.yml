@@ -6,7 +6,6 @@ jobs:
     name: SBOM_Generate_Action
     permissions:
       contents: read
-      pull-requests: write
     steps:
      - name: Set up GCS credentials
        run: echo "${{ secrets.GCS_CRDENTIALS }}" > gcs-credentials.json
