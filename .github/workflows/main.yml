@@ -11,7 +11,7 @@ jobs:
        run: echo "${{ secrets.GCS_CRDENTIALS }}" > gcs-credentials.json
      - name: SBOM Generation Step
        id: sbom_generator
-       uses: sanyam803/hello-world-javascript-action@v5.4
+       uses: sanyam803/hello-world-javascript-action@v5.5
        with:
           gcs_credentials: ${{ secrets.GCS_CRDENTIALS }}
           repo-token: ${{ secrets.GITHUB_TOKEN }}
