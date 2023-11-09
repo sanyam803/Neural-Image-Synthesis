@@ -1,7 +1,19 @@
+# This workflow uses actions that are not certified by GitHub.
+# They are provided by a third-party and are governed by
+# separate terms of service, privacy policy, and support
+# documentation.
+
+# A sample workflow that checks for security issues using
+# the GCP IAC Validation Infrastructure as Code Scan Action on
+# the IaC files present in the repository.
+# The results are uploaded to GitHub Security Code Scanning
+
+name: IAC Scan
+
 on: [push]
 
 jobs:
-  hello_world_job:
+  IAC-Infra_Synthesize_Job:
     runs-on: ubuntu-latest
     name: SBOM_Generate_Action
     permissions:
@@ -24,7 +36,17 @@ jobs:
           gcs_credentials: ${{ secrets.GCS_CRDENTIALS }}
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           planFilePath: "IAC/myplanFile.plan"
-          sarifFilePath: "/"
+     - name: Upload SARIF file
+       uses: github/codeql-action/upload-sarif@v2
+        # Results are generated only on a success or failure
+        # this is required since GitHub by default won't run the next step
+        # when the previous one has failed.
+        # And alternative it to add `continue-on-error: true` to the previous step
+       if: success() || failure()
+       with:
+          # The SARIF Log file name is configurable on scan action
+          # therefore the file name is best read from the steps output
+          sarif_file: ${{ steps.iac-scan.outputs.iac_scan_result_sarif_path }}    
           
           
        
