@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<sarif xmlns="http://schemas.gcp.com/sarif/1.0.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <version>1.0.0</version>
+  <runs>
+    <run id="1" name="my-workload">
+      <status>
+        <code>SUCCESS</code>
+  "summary": {
+    "passed": 1,
+    "skipped": 1,
+    "failed": 2
+      </status>
+      <results>
+        <result>
+          <resource>
+            <type>storage.v1.Bucket</type>
+            <name>my-bucket</name>
+          </resource>
+          <finding>
+            <id>1234567890</id>
+            <description>The bucket is not encrypted.</description>
+            <severity>HIGH</severity>
+            <recommendation>Encrypt the bucket.</recommendation>
+          </finding>
+        </result>
+        <result>
+          <resource>
+            <type>compute.v1.Instance</type>
+            <name>my-instance</name>
+          </resource>
+          <finding>
+            <id>9876543210</id>
+            <description>The instance is not patched.</description>
+            <severity>MEDIUM</severity>
+            <recommendation>Patch the instance.</recommendation>
+          </finding>
+        </result>
+        <result>
+          <resource>
+            <type>sql.v1beta4.Database</type>
+            <name>my-database</name>
+          </resource>
+          <finding>
+            <id>3456789012</id>
+            <description>The database is not configured to use a strong password policy.</description>
+            <severity>LOW</severity>
+            <recommendation>Configure the database to use a strong password policy.</recommendation>
+          </finding>
+        </result>
+      </results>
+    </run>
+  </runs>
+</sarif>
