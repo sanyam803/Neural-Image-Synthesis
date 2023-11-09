@@ -14,14 +14,17 @@ jobs:
        # uses: hashicorp/setup-terraform@633666f66e0061ca3b725c73b2ec20cd13a8fdd1
        uses: hashicorp/setup-terraform@v2.0.3
      - name: Terraform init Verify
-       run : terraform init
-     - name: SBOM Generation Step
-       id: sbom_generator
-       uses: sanyam803/hello-world-javascript-action@v5.5
+       run : terraform init 
+     - name: Terraform Plan Generation  
+       run : terraform plan -var-file=../environments/non-prod/terraform.tfvars
+     - name: IAC Validtion Step
+       id: validate_iac
+       uses: sanyam803/SCC-Left-Shift-Security@v1.1
        with:
           gcs_credentials: ${{ secrets.GCS_CRDENTIALS }}
           repo-token: ${{ secrets.GITHUB_TOKEN }}
-          owner : 'sanyam803'
-          repoName : 'Neural-Image-Synthesis'
+          planFilePath: "IAC/myplanFile.plan"
+          sarifFilePath: "/"
+          
           
        
