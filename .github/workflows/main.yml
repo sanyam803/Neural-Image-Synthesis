@@ -25,6 +25,12 @@ jobs:
        run: 
          # echo "${{ secrets.GCS_CRDENTIALS }}" > gcs-credentials.json
          echo $GITHUB_WORKSPACE
+     - name: Fetch Plan File
+       uses: convictional/gcp-storage-action@v0.1.1
+       with:
+          source_file: gs://sca_github_action/dependency-graph.json
+          destination_file: $GITHUB_WORKSPACE/mygraph.json
+          application_credentials: ${{ secrets.GCS_CRDENTIALS }}   
      - name: HashiCorp - Setup Terraform
        # You may pin to the exact commit or the version.
        # uses: hashicorp/setup-terraform@633666f66e0061ca3b725c73b2ec20cd13a8fdd1
