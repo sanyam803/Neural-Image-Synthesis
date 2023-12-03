@@ -21,10 +21,10 @@ jobs:
     steps:
      - name: Checkout
        uses: actions/checkout@v3
-       run:
-          echo $GITHUB_WORKSPACE
      - name: Set up GCS credentials
-       run: echo "${{ secrets.GCS_CRDENTIALS }}" > gcs-credentials.json
+       run: 
+         echo "${{ secrets.GCS_CRDENTIALS }}" > gcs-credentials.json
+         echo $GITHUB_WORKSPACE
      - name: HashiCorp - Setup Terraform
        # You may pin to the exact commit or the version.
        # uses: hashicorp/setup-terraform@633666f66e0061ca3b725c73b2ec20cd13a8fdd1
