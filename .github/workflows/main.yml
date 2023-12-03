@@ -23,7 +23,7 @@ jobs:
        uses: actions/checkout@v3
      - name: Set up GCS credentials
        run: 
-         echo "${{ secrets.GCS_CRDENTIALS }}" > gcs-credentials.json
+         # echo "${{ secrets.GCS_CRDENTIALS }}" > gcs-credentials.json
          echo $GITHUB_WORKSPACE
      - name: HashiCorp - Setup Terraform
        # You may pin to the exact commit or the version.
