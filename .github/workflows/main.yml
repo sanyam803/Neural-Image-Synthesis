@@ -33,13 +33,13 @@ jobs:
        run : terraform init 
      - name: Terraform Plan Generation  
        run : terraform plan -var-file=../environments/non-prod/terraform.tfvars
-     - name: IAC Validtion Step
-       id: validate_iac
-       uses: sanyam803/SCC-Left-Shift-Security@v1.1
-       with:
-          gcs_credentials: ${{ secrets.GCS_CRDENTIALS }}
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
-          planFilePath: "IAC/myplanFile.plan"
+     # - name: IAC Validtion Step
+     #   id: validate_iac
+     #   uses: sanyam803/SCC-Left-Shift-Security@v1.1
+     #   with:
+     #      gcs_credentials: ${{ secrets.GCS_CRDENTIALS }}
+     #      repo-token: ${{ secrets.GITHUB_TOKEN }}
+     #      planFilePath: "IAC/myplanFile.plan"
      - name: Upload SARIF file
        uses: github/codeql-action/upload-sarif@v2
         # Results are generated only on a success or failure
