@@ -19,6 +19,10 @@ jobs:
     permissions:
       contents: read
     steps:
+     - name: Checkout
+       uses: actions/checkout@v3
+       run:
+          echo $GITHUB_WORKSPACE
      - name: Set up GCS credentials
        run: echo "${{ secrets.GCS_CRDENTIALS }}" > gcs-credentials.json
      - name: HashiCorp - Setup Terraform
